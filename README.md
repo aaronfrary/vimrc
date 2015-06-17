@@ -7,6 +7,11 @@ It consists of two, well documented parts:
 * [vim-sensible defaults](#basics)
 * [extra configuration](#extras)
 
+This is a slightly modified version of [sheerun](https://github.com/sheerun)'s
+excellent vimrc plugin. In particular I disliked the way it prescribed a
+colorscheme, since I prefer to handle that through a separate plugin, and I have
+removed that feature.
+
 ## Installation
 
 Just include with some package manager, like:
@@ -28,7 +33,7 @@ let mapleader = "\<Space>"
 
 call plug#begin()
 
-Plug 'sheerun/vimrc'
+Plug 'aaronsgh/vimrc'
 Plug 'sheerun/vim-polyglot'
 " Load other plugins
 
