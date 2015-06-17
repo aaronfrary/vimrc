@@ -10,7 +10,8 @@ It consists of two, well documented parts:
 This is a slightly modified version of [sheerun](https://github.com/sheerun)'s
 excellent vimrc plugin. In particular I disliked the way it prescribed a
 colorscheme, since I prefer to handle that through a separate plugin, and I have
-removed that feature.
+removed that feature. I also added swapfiles back in, and made a handful of
+minor changes.
 
 ## Installation
 
@@ -219,12 +220,13 @@ nnoremap <Leader>o :CtrlP<CR>
   set viminfo^=!
   ```
 
-* Enable backup and undo files by default.
+* Enable swap, backup and undo files by default.
 
   ```vim
   let s:dir = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
   let &backupdir = expand(s:dir) . '/backup//'
   let &undodir = expand(s:dir) . '/undo//'
+  let &directory = expand(s:dir) . '/swap//'
   set undofile
   ```
 
@@ -262,14 +264,6 @@ nnoremap <Leader>o :CtrlP<CR>
 
 ## Extras
 
-* Set monako font if using macvim
-
-  ```vim
-  if has("gui_macvim")
-    set guifont=Monaco:h13
-  endif
-  ```
-
 * Keep flags when repeating last substitute command.
 
   ```vim
@@ -283,19 +277,12 @@ nnoremap <Leader>o :CtrlP<CR>
   nnoremap Y y$
   ```
 
-* Automatically create directories for backup and undo files.
+* Automatically create directories for swap, backup and undo files.
 
   ```vim
   if !isdirectory(expand(s:dir))
-    call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+    call system("mkdir -p " . expand(s:dir) . "/{swap,backup,undo}")
   end
-  ```
-
-* Use more readable color scheme by default.
-  It works well with `:set colorline` option.
-
-  ```vim
-  colorscheme wombat256mod
   ```
 
 * Highlight line under cursor. It helps with navigation.
@@ -378,24 +365,17 @@ nnoremap <Leader>o :CtrlP<CR>
   set nomodeline
   ```
 
-* Do not fold by default. But if, do it up to 3 levels.
+* Use {{{ as fold markers and show folds on the left.
 
   ```vim
-  set foldmethod=indent
-  set foldnestmax=3
-  set nofoldenable
+  set foldmethod=marker
+  set fdc=1
   ```
 
 * Enable mouse for scrolling and window resizing.
 
   ```vim
   set mouse=a
-  ```
-
-* Disable swap to prevent annoying messages.
-
-  ```vim
-  set noswapfile
   ```
 
 * Save up to 100 marks, enable capital marks.

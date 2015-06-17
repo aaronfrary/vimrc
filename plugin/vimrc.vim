@@ -104,8 +104,9 @@ set tabpagemax=50
 " Always save upper case variables to viminfo file.
 set viminfo^=!
 
-" Enable backup and undo files by default.
+" Enable swap, backup and undo files by default.
 let s:dir = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+let &directory = expand(s:dir) . '/swap//'
 let &backupdir = expand(s:dir) . '/backup//'
 let &undodir = expand(s:dir) . '/undo//'
 set undofile
@@ -133,11 +134,6 @@ endif
 
 "" Extras
 
-" Set monako font if using macvim
-if has("gui_macvim")
-  set guifont=Monaco:h13
-endif
-
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
@@ -145,9 +141,9 @@ xnoremap & :&&<CR>
 " Y yanks from the cursor to the end of line as expected. See :help Y.
 nnoremap Y y$
 
-" Automatically create directories for backup and undo files.
+" Automatically create directories for swap, backup and undo files.
 if !isdirectory(expand(s:dir))
-  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+  call system("mkdir -p " . expand(s:dir) . "/{swap,backup,undo}")
 end
 
 " Highlight line under cursor. It helps with navigation.
@@ -194,16 +190,12 @@ set visualbell
 " Don't parse modelines (google "vim modeline vulnerability").
 set nomodeline
 
-" Do not fold by default. But if, do it up to 3 levels.
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
+" Use \{\{\{ as fold markers and show folds on the left.
+set foldmethod=marker
+set fdc=1
 
 " Enable mouse for scrolling and window resizing.
 set mouse=a
-
-" Disable swap to prevent annoying messages.
-set noswapfile
 
 " Save up to 100 marks, enable capital marks.
 set viminfo='100,f1
