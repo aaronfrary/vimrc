@@ -8,8 +8,8 @@ It consists of two, well documented parts:
 * [extra configuration](#extras)
 
 This is a slightly modified version of [sheerun](https://github.com/sheerun)'s
-excellent vimrc plugin. In particular I disliked the way it prescribed a
-colorscheme, since I prefer to handle that through a separate plugin, and I have
+excellent vimrc plugin. Mostly I just disliked the way it prescribed a
+colorscheme, since I prefer to handle that through a separate plugin, so I have
 removed that feature. I also added swapfiles back in, and made a handful of
 minor changes.
 
