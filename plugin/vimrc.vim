@@ -1,6 +1,6 @@
 " vimrc.vim - Extension of vim-sensible plugin with less sensible defaults.
-" Maintainer:   Adam Stankiewicz <sheerun@sher.pl>
-" Version:      2.0
+" Maintainer:   Aaron Graham-Horowitz <aaron@aaronsgh.com>
+" Version:      3.0
 
 if exists("g:loaded_vimrc") || &cp
   finish
