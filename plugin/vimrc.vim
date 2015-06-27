@@ -186,6 +186,7 @@ set number
 " Disable any annoying beeps on errors.
 set noerrorbells
 set visualbell
+set t_vb=
 
 " Don't parse modelines (google "vim modeline vulnerability").
 set nomodeline
