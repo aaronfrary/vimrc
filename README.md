@@ -123,12 +123,6 @@ nnoremap <Leader>o :CtrlP<CR>
   set expandtab
   ```
 
-* Use `Ctrl-L` to clear the highlighting of :set hlsearch.
-
-  ```vim
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-  ```
-
 * Always show window statuses, even if there's only one.
 
   ```vim

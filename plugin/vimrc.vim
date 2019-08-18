@@ -52,9 +52,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Use `Ctrl-L` to clear the highlighting of :set hlsearch.
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
 " Always show window statuses, even if there's only one.
 set laststatus=2
 
@@ -191,10 +188,6 @@ set t_vb=
 " Don't parse modelines (google "vim modeline vulnerability").
 set nomodeline
 
-" Use \{\{\{ as fold markers and show folds on the left.
-set foldmethod=marker
-set fdc=1
-
 " Enable mouse for scrolling and window resizing.
 set mouse=a
 
@@ -229,9 +222,6 @@ set wildignore+=*.swp,*~,._*
 " Auto center on matched string.
 noremap n nzz
 noremap N Nzz
-
-" Visually select the text that was last edited/pasted (Vimcast#26).
-noremap gV `[v`]
 
 " Expand %% to path of current buffer in command mode.
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -277,9 +267,6 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
-
-" Prevent common mistake of pressing q: instead :q
-map q: :q
 
 " Make a simple "search" text object.
 " http://vim.wikia.com/wiki/Copy_or_change_search_hit
