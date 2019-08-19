@@ -169,10 +169,10 @@ set wrap linebreak
 set showbreak=" "
 
 " Allow easy navigation between wrapped lines.
-vmap j gj
-vmap k gk
-nmap j gj
-nmap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap j gj
+nnoremap k gk
 
 " For autocompletion, complete as much as you can.
 set wildmode=longest,full
